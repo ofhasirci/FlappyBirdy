@@ -27,6 +27,7 @@ public class Birdy : MonoBehaviour
                 rb2D.velocity = Vector2.zero;
                 rb2D.AddForce(new Vector2(0, upForce));
                 anim.SetTrigger("Flap");
+                GameController.instance.soundManager.FlapSound();
             }
         }
     }

@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     public float scrollSpeed = -1.5f;
     public Text scoreText;
 
+    public SoundManager soundManager;
+
     private int score = 0;
 
     // Start is called before the first frame update
@@ -27,6 +29,8 @@ public class GameController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        soundManager = GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
@@ -43,11 +47,13 @@ public class GameController : MonoBehaviour
         if (gameOver) return;
         score++;
         scoreText.text = "Score: " + score.ToString();
+        soundManager.ScoreSound();
     }
 
     public void BirdyDied()
     {
         gameOverText.SetActive(true);
         gameOver = true;
+        soundManager.DieSound();
     }
 }
