@@ -38,7 +38,6 @@ public class GameController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
-
     public void BirdyScored()
     {
         if (gameOver) return;
